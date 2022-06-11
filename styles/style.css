@@ -1,0 +1,340 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'roboto slab', sans-serif;
+}
+
+.header-wrapper {
+    height: 100vh;
+    width: 100%;
+    color: aliceblue;
+    background: linear-gradient(-45deg, #1B969E, #4118A1, #B74C21, #E89319);
+    background-size: 400% 400%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    animation: backgroundTransition 6s ease-in-out infinite;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: 700;
+
+}
+
+h2 {
+    font-weight: 300;
+}
+
+.social-media {
+    margin-top: 1rem;
+    display: flex;
+
+}
+
+.social-media a {
+    text-decoration: none;
+    font-size: 24px;
+    padding: 1rem 4rem;
+    border: 1px solid aliceblue;
+    min-width: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .2s cubic-bezier(0.25, 0.75, 0.75, 0.33);
+}
+
+a {
+    text-decoration: none;
+    color: aliceblue;
+}
+a:hover {
+    background-color: aliceblue;
+}
+
+@keyframes backgroundTransition {
+    0%{
+        background-position: 50% 80%;
+    }
+    50%{
+        background-position: 80% 100%;
+    }
+    100%{
+        background-position: 50% 80%;
+    }
+}
+/* menu hamburguer - aula 8 */
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.checkbox {
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 9999;
+    transition: .4s ease-in-out 0s;
+}
+
+.checkbox .trace {
+    width: 50px;
+    height: 2px;
+    background-color: aliceblue;
+    position: absolute;
+    border-radius: 4px;
+    transition: .5s ease-in-out;
+}
+
+.checkbox .trace:nth-child(1) {
+    top: 26px;
+    transform: rotate(0);
+}
+
+.checkbox .trace:nth-child(2) {
+    top: 46px;
+    transform: rotate(0);
+}
+
+.checkbox .trace:nth-child(3) {
+    top: 66px;
+    transform: rotate(0);
+}
+
+#toggle {
+    display: none;
+}
+
+.menu {
+    position: absolute;
+    top: 28px;
+    right: 30px;
+    background: transparent;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 0px 0px white;
+    z-index: -1;
+    transition: .4s ease-in-out 0s;
+}
+
+.menu-items {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    opacity: 0;
+    visibility: hidden;
+    transition: .4s ease-in-out 0s;
+}
+
+.menu-items ul {
+    list-style-type: none;
+    
+}
+
+.menu-items ul li a{
+    margin: 10px 0;
+    color: black;
+    text-decoration: none;
+    font-size: 40px;
+}
+
+.social-media a:nth-child(1) {
+    background-color: rgb(37, 81, 177);
+}
+
+.social-media a:nth-child(2) {
+    background-color: rgb(255, 145, 0);
+}
+
+.social-media a:nth-child(1):hover {
+    background-color: rgb(24, 60, 138);
+}
+
+.social-media a:nth-child(2):hover {
+    background-color: rgb(219, 113, 0);
+}
+
+#toggle:checked + .checkbox .trace:nth-child(1) {/*quando ativarmos o toggle ao clicar no hamburguer, vamos falar com cada trace para animar individualmente*/
+    transform: rotate(45deg);
+    background-color: rgb(150, 150, 150);
+    top: 47px;
+}
+
+#toggle:checked + .checkbox .trace:nth-child(2) {
+    transform: translateX(-100px);
+    width: 30px;
+    visibility: hidden;
+    opacity: 0;
+}
+
+#toggle:checked + .checkbox .trace:nth-child(3) {/*quando ativarmos o toggle ao clicar no hamburguer, vamos falar com cada trace para animar individualmente*/
+    transform: rotate(-45deg);
+    background-color: rgb(150, 150, 150);
+    top: 47px;
+}
+
+#toggle:checked + .checkbox {
+    background-color: aliceblue;
+
+}
+
+#toggle:checked ~ .menu {
+    box-shadow: 0px 0px 0px 100vmax white;
+    z-index: 1;
+}
+
+#toggle:checked ~ .menu-items {
+    visibility: visible;
+    opacity: 1;
+}
+
+.container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 3rem 0;
+}
+
+.card-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 90%;
+}
+
+.card {
+    height: 300px;
+    width: 400px;
+    margin: 3rem 0 0;
+    background: #4118A1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .3s;
+    cursor: pointer;
+    filter: grayscale(0.7);
+    color: #fff;
+}
+
+.card-text {
+    width: 40%;
+    font-family: sans-serif;
+    color: gray;
+}
+
+.card-wrapper {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+}
+
+.card-wrapper::before {
+    content: '';
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    display: block;
+    border: 1px solid white;
+    opacity: 0;
+    transition: .3s;
+}
+
+.card-wrapper h2 {
+    font-size: 40px;
+    text-transform: uppercase;
+    margin: 0;
+    transition: .3s;
+}
+
+.card-wrapper p {
+    font-size: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: .3s;
+}
+
+.card:hover {
+    filter: unset;
+}
+
+.card:hover > .card-wrapper::before {
+    opacity: 1;
+    width: 350px;
+    height: 250px;
+}
+
+.card:hover > .card-wrapper p {
+    font-size: 20px;
+    visibility: visible;
+    opacity: 1;
+}
+
+.rollfoot {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(225, 225, 225);
+    color: black;  
+}
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+    .social-media {
+        display: flex;
+        flex-direction: column;
+    }
+    .container {
+        margin-top: 0;
+    }
+    .card-container {
+        flex-direction: column;
+    }
+    .container .card-container:nth-child(1),
+    .container .card-container:nth-child(3) {
+        flex-direction: column-reverse;
+    }
+
+    .card {
+        width: 250px;
+        height: 250px;
+    }
+
+    .card-text {
+        width: 90%;
+        margin-top: 2rem;
+        text-align: center;
+    }
+
+    .card:hover > .card-wrapper::before {
+        height: 230px;
+        width: 230px;
+    }
+}
