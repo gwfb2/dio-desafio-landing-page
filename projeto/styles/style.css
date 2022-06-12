@@ -228,6 +228,7 @@ a:hover {
     width: 400px;
     margin: 3rem 0 0;
     background: #4118A1;
+    border-radius: 6px;
     display: flex;
     justify-content: center;
     align-items: center;
